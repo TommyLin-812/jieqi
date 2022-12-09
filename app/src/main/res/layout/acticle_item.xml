@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/menu_item_bg"
+    android:padding="10dp">
+
+    <ImageView
+        android:id="@+id/iv_article_pic"
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/rain_cow" />
+
+    <LinearLayout
+        android:paddingLeft="20dp"
+        android:id="@+id/iv_article_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/iv_article_pic"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp">
+
+        <TextView
+            android:id="@+id/tv_article_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="题目"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+
+
+        <TextView
+            android:id="@+id/tv_article_author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="作者" />
+
+
+
+
+
+    </LinearLayout>
+
+</RelativeLayout>
