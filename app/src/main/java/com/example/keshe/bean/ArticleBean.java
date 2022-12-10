@@ -2,18 +2,18 @@ package com.example.keshe.bean;
 
 import java.io.Serializable;
 
-public class ActicleBean implements Serializable {
-    private String acticleID;
+public class ArticleBean implements Serializable {
+    private String articleID;
     private String title;
     private String content;
-    private int acticlePic;
+    private int articlePic;
     private String author;
 
-    public ActicleBean(String acticleID, String title, String content, int acticlePic, String author) {
-        this.acticleID = acticleID;
+    public ArticleBean(String articleID, String title, String content, int articlePic, String author) {
+        this.articleID = articleID;
         this.title = title;
         this.content = content;
-        this.acticlePic = acticlePic;
+        this.articlePic = articlePic;
         this.author = author;
     }
 
@@ -27,10 +27,9 @@ public class ActicleBean implements Serializable {
     }
 
 
-    public int getActiclePic() {
-        return acticlePic;
+    public int getArticlePic() {
+        return articlePic;
     }
-
 
 
     public String getTitle() {
@@ -41,8 +40,8 @@ public class ActicleBean implements Serializable {
         return content;
     }
 
-    public String getActicleID() {
-        return acticleID;
+    public String getArticleID() {
+        return articleID;
     }
 
     public void setTitle(String title) {
@@ -53,11 +52,11 @@ public class ActicleBean implements Serializable {
         this.content = content;
     }
 
-    public void setActicleID(String acticleID) {
-        this.acticleID = acticleID;
+    public void setArticleID(String articleID) {
+        this.articleID = articleID;
     }
 
-    public void setActiclePic(int acticlePic) {
-        this.acticlePic = acticlePic;
+    public void setArticlePic(int articlePic) {
+        this.articlePic = articlePic;
     }
 }

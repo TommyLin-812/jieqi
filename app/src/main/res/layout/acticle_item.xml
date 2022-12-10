@@ -14,13 +14,13 @@
         android:src="@drawable/rain_cow" />
 
     <LinearLayout
-        android:paddingLeft="20dp"
         android:id="@+id/iv_article_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
         android:layout_toRightOf="@id/iv_article_pic"
         android:orientation="vertical"
-        android:layout_marginLeft="10dp">
+        android:paddingLeft="20dp">
 
         <TextView
             android:id="@+id/tv_article_title"
@@ -28,8 +28,7 @@
             android:layout_height="wrap_content"
             android:text="题目"
             android:textSize="20sp"
-            android:textStyle="bold"/>
-
+            android:textStyle="bold" />
 
 
         <TextView
@@ -37,9 +36,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="作者" />
-
-
-
 
 
     </LinearLayout>

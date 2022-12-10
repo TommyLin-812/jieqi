@@ -14,19 +14,22 @@
         android:theme="@style/Theme.KeShe"
         tools:targetApi="31">
         <activity
-            android:name=".ActicleList"
+            android:name=".CollectionListActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ArticleList"
             android:exported="false" />
         <activity
-            android:name=".ActicleDetail"
-            android:exported="false"/>
-
+            android:name=".ArticleDetail"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
-
-
-
-        <intent-filter>
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
