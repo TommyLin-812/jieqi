@@ -23,7 +23,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
                 android:background="@drawable/star_gray"
-                android:clickable="true"></ImageButton>
+                android:clickable="true" />
 
             <TextView
                 android:id="@+id/tv_history"
@@ -35,9 +35,7 @@
                 android:background="@color/light_gray"
                 android:clickable="true"
                 android:gravity="center"
-                android:text="历史记录">
-
-            </TextView>
+                android:text="历史记录" />
         </FrameLayout>
 
         <FrameLayout
