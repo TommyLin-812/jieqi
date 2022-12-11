@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         tvWeather.setText(todayWeather.getWea());
-        tvTemLowHigh.setText(todayWeather.getTem2() + "~" + todayWeather.getTem1());
+        tvTemLowHigh.setText(todayWeather.getTem_night() + "~" + todayWeather.getTem_day());
         ivWeather.setImageResource(getImgResOfWeather(todayWeather.getWeaImg()));
     }
 

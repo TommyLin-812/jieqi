@@ -7,14 +7,14 @@ import java.util.Arrays;
 
 public class DayWeatherBean implements Serializable {
 
-    @SerializedName("day")
-    private String day;
-
     @SerializedName("date")
     private String date;
 
     @SerializedName("week")
     private String week;
+
+    @SerializedName("update_time")
+    private String update_time;
 
     @SerializedName("wea")
     private String wea;
@@ -22,17 +22,14 @@ public class DayWeatherBean implements Serializable {
     @SerializedName("wea_img")
     private String weaImg;
 
-    @SerializedName("wea_day")
-    private String weaDay;
-
     @SerializedName("tem")
     private String tem;
 
-    @SerializedName("tem1")
-    private String tem1;
+    @SerializedName("tem_day")
+    private String tem_day;
 
-    @SerializedName("tem2")
-    private String tem2;
+    @SerializedName("tem_night")
+    private String tem_night;
 
     @SerializedName("win")
     private String[] win;
@@ -40,25 +37,17 @@ public class DayWeatherBean implements Serializable {
     @SerializedName("win_speed")
     private String winSpeed;
 
+    @SerializedName("win_meter")
+    private String win_meter;
+
     @SerializedName("air")
     private String air;
 
-    @SerializedName("air_level")
-    private String airLevel;
+    @SerializedName("pressure")
+    private String pressure;
 
-    @SerializedName("air_tips")
-    private String airTips;
-
-    @SerializedName("index")
-    //private List<OtherTipsBean> mTipsBeans;
-
-    public String getDay() {
-        return day;
-    }
-
-    public void setDay(String day) {
-        this.day = day;
-    }
+    @SerializedName("humidity")
+    private String humidity;
 
     public String getDate() {
         return date;
@@ -92,14 +81,6 @@ public class DayWeatherBean implements Serializable {
         this.weaImg = weaImg;
     }
 
-    public String getWeaDay() {
-        return weaDay;
-    }
-
-    public void setWeaDay(String weaDay) {
-        this.weaDay = weaDay;
-    }
-
     public String getTem() {
         return tem;
     }
@@ -108,20 +89,20 @@ public class DayWeatherBean implements Serializable {
         this.tem = tem;
     }
 
-    public String getTem1() {
-        return tem1;
+    public String getTem_day() {
+        return tem_day;
     }
 
-    public void setTem1(String tem1) {
-        this.tem1 = tem1;
+    public void setTem_day(String tem_day) {
+        this.tem_day = tem_day;
     }
 
-    public String getTem2() {
-        return tem2;
+    public String getTem_night() {
+        return tem_night;
     }
 
-    public void setTem2(String tem2) {
-        this.tem2 = tem2;
+    public void setTem_night(String tem_night) {
+        this.tem_night = tem_night;
     }
 
     public String[] getWin() {
@@ -148,39 +129,37 @@ public class DayWeatherBean implements Serializable {
         this.air = air;
     }
 
-    public String getAirLevel() {
-        return airLevel;
+    public String getPressure() {
+        return pressure;
     }
 
-    public void setAirLevel(String airLevel) {
-        this.airLevel = airLevel;
+    public void setPressure(String pressure) {
+        this.pressure = pressure;
     }
 
-    public String getAirTips() {
-        return airTips;
+    public String getHumidity() {
+        return humidity;
     }
 
-    public void setAirTips(String airTips) {
-        this.airTips = airTips;
+    public void setHumidity(String humidity) {
+        this.humidity = humidity;
     }
 
     @Override
     public String toString() {
         return "DayWeatherBean{" +
-                "day='" + day + '\'' +
                 ", date='" + date + '\'' +
                 ", week='" + week + '\'' +
                 ", wea='" + wea + '\'' +
                 ", weaImg='" + weaImg + '\'' +
-                ", weaDay='" + weaDay + '\'' +
                 ", tem='" + tem + '\'' +
-                ", tem1='" + tem1 + '\'' +
-                ", tem2='" + tem2 + '\'' +
+                ", tem1='" + tem_day + '\'' +
+                ", tem2='" + tem_night + '\'' +
                 ", win=" + Arrays.toString(win) +
                 ", winSpeed='" + winSpeed + '\'' +
                 ", air='" + air + '\'' +
-                ", airLevel='" + airLevel + '\'' +
-                ", airTips='" + airTips +
+                ", airLevel='" + pressure + '\'' +
+                ", airTips='" + humidity +
                 '}';
     }
 }
