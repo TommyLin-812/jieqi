@@ -16,24 +16,36 @@
             android:layout_gravity="center_vertical"
             android:layout_marginStart="16dp"
             android:background="@drawable/iv_back_selector"
-            android:clickable="true" />
+            android:clickable="true"
+            android:focusable="true" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/collection"
             android:layout_gravity="center"
-            android:textSize="17sp"
-            android:textColor="@color/black"/>
+            android:text="@string/history"
+            android:textColor="@color/black"
+            android:textSize="17sp" />
+
+        <Button
+            android:id="@+id/btn_clean_history"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center_vertical"
+            android:backgroundTint="@color/color_gray"
+            android:gravity="center"
+            android:text="@string/clean_history"
+            android:textSize="15sp" />
+
 
     </FrameLayout>
 
     <TextView
-        android:id="@+id/tv_no_favourite"
+        android:id="@+id/tv_no_history"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="@string/no_favourite"
+        android:text="@string/no_history"
         android:textColor="@color/black"
         android:textSize="15sp" />
 

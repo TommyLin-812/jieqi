@@ -9,12 +9,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.keshe.bean.ArticleBean;
 import com.example.keshe.database.CollectionDBHelper;
+import com.example.keshe.database.HistoryDBHelper;
 
 public class ArticleDetail extends AppCompatActivity implements View.OnClickListener {
     private ArticleBean bean;
     private ImageView btn_add_favourite;
     private ImageView btn_delete_favourite;
-    private CollectionDBHelper helper;
+    private CollectionDBHelper collectionHelper;
+    private HistoryDBHelper historyHelper;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -47,27 +49,33 @@ public class ArticleDetail extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onStart() {
         super.onStart();
-        helper = CollectionDBHelper.getInstance(this);
-        helper.OpenWriteLink();
-        helper.OpenReadLink();
-        if (helper.Query(bean)) isFavourite();
+        collectionHelper = CollectionDBHelper.getInstance(this);
+        collectionHelper.OpenWriteLink();
+        collectionHelper.OpenReadLink();
+        if (collectionHelper.Query(bean)) isFavourite();
+
+        historyHelper = HistoryDBHelper.getInstance(this);
+        historyHelper.OpenWriteLink();
+        historyHelper.OpenReadLink();
+        historyHelper.Insert(bean);
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        helper.CloseLink();
+        collectionHelper.CloseLink();
+        historyHelper.CloseLink();
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_add_favourite:
-                helper.Insert(bean);
+                collectionHelper.Insert(bean);
                 isFavourite();
                 break;
             case R.id.btn_delete_favourite:
-                helper.Delete(bean);
+                collectionHelper.Delete(bean);
                 isNotFavourite();
         }
     }

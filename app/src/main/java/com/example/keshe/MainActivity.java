@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.home);
-        ImageView iv_to_article = this.findViewById(R.id.tv_jumpto_acticle);
+        ImageView iv_to_article = this.findViewById(R.id.iv_to_article);
         iv_to_article.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

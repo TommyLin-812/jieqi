@@ -10,4 +10,8 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="no_favourite">没有收藏文章！</string>
+    <string name="no_history">没有阅读历史记录！</string>
+    <string name="collection">收藏</string>
+    <string name="history">历史记录</string>
+    <string name="clean_history">清空</string>
 </resources>

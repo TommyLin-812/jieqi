@@ -8,22 +8,27 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import com.example.keshe.bean.ArticleBean;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 
-public class CollectionDBHelper extends SQLiteOpenHelper {
-    private static final String DB_NAME = "Collection.db";
-    private static final String TABLE_NAME = "ArticleCollection";
+public class HistoryDBHelper extends SQLiteOpenHelper {
+
+    private static final String DB_NAME = "History.db";
+    private static final String TABLE_NAME = "ArticleHistory";
     private static final int DB_VERSION = 1;
-    private static CollectionDBHelper helper = null;
+    private static HistoryDBHelper helper = null;
     private SQLiteDatabase reader = null;
     private SQLiteDatabase writer = null;
 
-    private CollectionDBHelper(Context context) {
+    private HistoryDBHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
     }
 
-    public static CollectionDBHelper getInstance(Context context) {
-        if (helper == null) helper = new CollectionDBHelper(context);
+    public static HistoryDBHelper getInstance(Context context) {
+        if (helper == null) helper = new HistoryDBHelper(context);
         return helper;
     }
 
@@ -50,8 +55,7 @@ public class CollectionDBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String sql = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + "(" +
-                "articleID INTEGER PRIMARY KEY NOT NULL);";
+        String sql = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + " (articleID INTEGER PRIMARY KEY NOT NULL);";
         db.execSQL(sql);
     }
 
@@ -66,15 +70,8 @@ public class CollectionDBHelper extends SQLiteOpenHelper {
         return writer.insert(TABLE_NAME, null, values);
     }
 
-    public long Delete(ArticleBean bean) {
-        return writer.delete(TABLE_NAME, "articleID=?", new String[]{bean.getArticleID()});
-    }
-
-    public Boolean Query(ArticleBean bean) {
-        Cursor cursor = reader.query(TABLE_NAME, null, "articleID=?", new String[]{bean.getArticleID()}, null, null, null);
-        Boolean flag = cursor.moveToNext();
-        cursor.close();
-        return flag;
+    public long DeleteAll() {
+        return writer.delete(TABLE_NAME, null, null);
     }
 
     public ArrayList<String> QueryAll() {

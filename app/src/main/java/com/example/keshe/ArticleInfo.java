@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.example.keshe.bean.ArticleBean;
 import com.example.keshe.database.CollectionDBHelper;
+import com.example.keshe.database.HistoryDBHelper;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -43,5 +44,21 @@ public class ArticleInfo {
         }
         helper.CloseLink();
         return favouriteList;
+    }
+
+    public static ArrayList<ArticleBean> getHistoryList(Context context) {
+        HistoryDBHelper helper = HistoryDBHelper.getInstance(context);
+        helper.OpenReadLink();
+        ArrayList<ArticleBean> historyList = new ArrayList<>();
+        ArrayList<String> articleIDList = helper.QueryAll();
+        for (String articleID : articleIDList) {
+            for (int i = 0; i < articleIDArray.length; i++) {
+                if (Objects.equals(articleID, articleIDArray[i])) {
+                    historyList.add(new ArticleBean(articleID, titleArray[i], contentArray[i], articlePicArray[i], authorArray[i]));
+                }
+            }
+        }
+        helper.CloseLink();
+        return historyList;
     }
 }
