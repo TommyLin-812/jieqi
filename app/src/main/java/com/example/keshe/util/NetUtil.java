@@ -11,7 +11,7 @@ import java.net.URL;
 
 public class NetUtil {
 
-    public static final String URL_WEATHER_WITH_FUTURE = "https://yiketianqi.com/free/day?appid=48453555&appsecret=bPCgbZl2&";
+    public static final String URL_WEATHER_WITH_FUTURE = "https://yiketianqi.com/free/day?appid=48453555&appsecret=bPCgbZl2";
 
 
     public static String doGet(String urlStr) {

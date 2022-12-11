@@ -18,7 +18,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.keshe.bean.DayWeatherBean;
 import com.example.keshe.bean.WeatherBean;
 import com.example.keshe.util.NetUtil;
 import com.google.gson.Gson;
@@ -26,13 +25,12 @@ import com.google.gson.Gson;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
     private Thread thread;
     private Handler handler;  //异步消息处理器
-    private TextView time;
+    private TextView weatherBean;
     private TextView riqi;
     private TextView jieqi;
     private TextView lunar;
@@ -45,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
     private Button Btn1;
     private TextView tvWeather, tvTemLowHigh, tvaddress;
     private ImageView ivWeather;
-    private DayWeatherBean todayWeather;
     private final Handler mHandler = new Handler(Looper.myLooper()) {
         @Override
         public void handleMessage(@NonNull Message msg) {
@@ -68,20 +65,14 @@ public class MainActivity extends AppCompatActivity {
     };
 
     @SuppressLint("SetTextI18n")
-    private void updateUiOfWeather(WeatherBean weatherBean) {
+    private void updateUiOfWeather(WeatherBean weather) {
         if (weatherBean == null) {
             return;
         }
 
-        List<DayWeatherBean> dayWeathers = weatherBean.getDayWeathers();
-        todayWeather = dayWeathers.get(0);
-        if (todayWeather == null) {
-            return;
-        }
-
-        tvWeather.setText(todayWeather.getWea());
-        tvTemLowHigh.setText(todayWeather.getTem_night() + "~" + todayWeather.getTem_day());
-        ivWeather.setImageResource(getImgResOfWeather(todayWeather.getWeaImg()));
+        tvWeather.setText(weather.getWea());
+        tvTemLowHigh.setText(weather.getTem_night() + "~" + weather.getTem_day());
+        ivWeather.setImageResource(getImgResOfWeather(weather.getWeaImg()));
     }
 
     private int getImgResOfWeather(String weaStr) {
@@ -137,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        time = findViewById(R.id.tv_Time);
+        weatherBean = findViewById(R.id.tv_Time);
         riqi = findViewById(R.id.tv_riqi);
         jieqi = findViewById(R.id.tv_jieqi);
         lunar = findViewById(R.id.tv_lunar);
@@ -145,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
         background = findViewById(R.id.background);
         sdf = new SimpleDateFormat("HH");////h和H不一样
         osdf = new SimpleDateFormat("HH");
-        time.setText(sdf.format(new Date()));
+        weatherBean.setText(sdf.format(new Date()));
         riqi.setText(LunarCalender.getriqi());
         jieqi.setText(LunarCalender.getFestival());
         lunar.setText(LunarCalender.getDayLunar());
@@ -160,68 +151,68 @@ public class MainActivity extends AppCompatActivity {
                     switch (sdf.format(new Date())) {
                         case "23":
                         case "00":
-                            time.setText("子时");
+                            weatherBean.setText("子时");
                             background.setBackground(getDrawable(R.drawable.night));
                             break;
                         case "01":
                         case "02":
-                            time.setText("丑时");
+                            weatherBean.setText("丑时");
                             background.setBackground(getDrawable(R.drawable.night));
                             break;
                         case "03":
                         case "04":
-                            time.setText("寅时");
+                            weatherBean.setText("寅时");
                             background.setBackground(getDrawable(R.drawable.night));
                             break;
                         case "05":
-                            time.setText("卯时");
+                            weatherBean.setText("卯时");
                             background.setBackground(getDrawable(R.drawable.night));
                             break;
                         case "06":
-                            time.setText("卯时");
+                            weatherBean.setText("卯时");
                             background.setBackground(getDrawable(R.drawable.morning));
                             break;
                         case "07":
                         case "08":
-                            time.setText("辰时");
+                            weatherBean.setText("辰时");
                             background.setBackground(getDrawable(R.drawable.morning));
                             break;
                         case "09":
                         case "10":
-                            time.setText("巳时");
+                            weatherBean.setText("巳时");
                             background.setBackground(getDrawable(R.drawable.morning));
                             break;
                         case "11":
-                            time.setText("午时");
+                            weatherBean.setText("午时");
                             background.setBackground(getDrawable(R.drawable.morning));
                             break;
                         case "12":
-                            time.setText("午时");
+                            weatherBean.setText("午时");
                             background.setBackground(getDrawable(R.drawable.noon));
                             break;
                         case "13":
                         case "14":
-                            time.setText("未时");
+                            weatherBean.setText("未时");
                             background.setBackground(getDrawable(R.drawable.noon));
                             break;
                         case "15":
                         case "16":
-                            time.setText("申时");
+                            weatherBean.setText("申时");
                             background.setBackground(getDrawable(R.drawable.noon));
                             break;
                         case "17":
                         case "18":
-                            time.setText("酉时");
+                            weatherBean.setText("酉时");
                             background.setBackground(getDrawable(R.drawable.noon));
                             break;
                         case "19":
                         case "20":
-                            time.setText("戌时");
+                            weatherBean.setText("戌时");
                             background.setBackground(getDrawable(R.drawable.night));
                             break;
                         case "21":
                         case "22":
-                            time.setText("亥时");
+                            weatherBean.setText("亥时");
                             background.setBackground(getDrawable(R.drawable.night));
                             break;
                         default:
