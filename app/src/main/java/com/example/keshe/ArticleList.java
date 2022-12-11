@@ -27,6 +27,8 @@ public class ArticleList extends AppCompatActivity implements View.OnClickListen
         ImageButton btn_favourite = findViewById(R.id.btn_favourite);
         Button btn_history = findViewById(R.id.btn_history);
         iv_to_home.setOnClickListener(this);
+        ImageView to_article = findViewById(R.id.iv_to_article);
+        to_article.setImageResource(R.drawable.form_blue);
         btn_favourite.setOnClickListener(this);
         btn_history.setOnClickListener(this);
 
