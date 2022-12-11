@@ -11,12 +11,9 @@ import com.example.keshe.bean.ArticleBean;
 import com.example.keshe.database.CollectionDBHelper;
 
 public class ArticleDetail extends AppCompatActivity implements View.OnClickListener {
-    private TextView articleContent, articleTitile;
     private ArticleBean bean;
-    private ImageView tvback;
     private ImageView btn_add_favourite;
     private ImageView btn_delete_favourite;
-    private String databaseName;
     private CollectionDBHelper helper;
 
     @Override
@@ -25,12 +22,12 @@ public class ArticleDetail extends AppCompatActivity implements View.OnClickList
         getSupportActionBar().hide();
         setContentView(R.layout.article_datail);
         bean = (ArticleBean) getIntent().getSerializableExtra("article");
-        articleContent = findViewById(R.id.article_content);
-        articleTitile = findViewById(R.id.article_title);
+        TextView articleContent = findViewById(R.id.article_content);
+        TextView articleTitle = findViewById(R.id.article_title);
         articleContent.setText(bean.getContent());
-        articleTitile.setText(bean.getTitle());
-        tvback = this.findViewById(R.id.iv_back);
-        tvback.setOnClickListener(new View.OnClickListener() {
+        articleTitle.setText(bean.getTitle());
+        ImageView iv_back = this.findViewById(R.id.iv_back);
+        iv_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ArticleDetail.this.finish();
@@ -40,7 +37,6 @@ public class ArticleDetail extends AppCompatActivity implements View.OnClickList
             return;
         }
 
-        databaseName = getFilesDir() + "/collection.db";
         btn_add_favourite = findViewById(R.id.btn_add_favourite);
         btn_add_favourite.setOnClickListener(this);
         btn_delete_favourite = findViewById(R.id.btn_delete_favourite);

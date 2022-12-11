@@ -15,14 +15,14 @@ import com.example.keshe.bean.ArticleBean;
 
 import java.util.List;
 
-public class ArticleAdpter extends BaseAdapter {
-    private Context context;
-    private List<ArticleBean> data;
+public class ArticleAdapter extends BaseAdapter {
+    private final Context context;
+    private final List<ArticleBean> data;
 
-    public ArticleAdpter(Context context, List<ArticleBean> acticle_list) {
+    public ArticleAdapter(Context context, List<ArticleBean> article_list) {
 
         this.context = context;
-        data = acticle_list;
+        data = article_list;
     }
 
     @Override
@@ -42,21 +42,21 @@ public class ArticleAdpter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder viewHolder = null;
+        ViewHolder viewHolder;
         if (convertView == null) {
             viewHolder = new ViewHolder();
             convertView = LayoutInflater.from(context).inflate(R.layout.acticle_item, null);
-            viewHolder.articleauthor = convertView.findViewById(R.id.tv_article_author);
-            viewHolder.articlepic = convertView.findViewById(R.id.iv_article_pic);
-            viewHolder.articletitle = convertView.findViewById(R.id.tv_article_title);
+            viewHolder.articleAuthor = convertView.findViewById(R.id.tv_article_author);
+            viewHolder.articlePic = convertView.findViewById(R.id.iv_article_pic);
+            viewHolder.articleTitle = convertView.findViewById(R.id.tv_article_title);
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
         final ArticleBean articleBean = data.get(position);
-        viewHolder.articletitle.setText(articleBean.getTitle());
-        viewHolder.articlepic.setImageResource(articleBean.getArticlePic());
-        viewHolder.articleauthor.setText(articleBean.getAuthor());
+        viewHolder.articleTitle.setText(articleBean.getTitle());
+        viewHolder.articlePic.setImageResource(articleBean.getArticlePic());
+        viewHolder.articleAuthor.setText(articleBean.getAuthor());
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,9 +70,10 @@ public class ArticleAdpter extends BaseAdapter {
         return convertView;
     }
 
-    class ViewHolder {
-        TextView articletitle, articleauthor, articlecontent;
-        ImageView articlepic;
+    static class ViewHolder {
+        TextView articleTitle;
+        TextView articleAuthor;
+        ImageView articlePic;
     }
 
 
