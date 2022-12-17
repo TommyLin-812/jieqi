@@ -73,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
         tvWeather.setText(weather.getWea());
         tvTemLowHigh.setText(weather.getTem_night() + "~" + weather.getTem_day());
         ivWeather.setImageResource(getImgResOfWeather(weather.getWeaImg()));
+        tvaddress.setText(weather.getCity());
     }
 
     private int getImgResOfWeather(String weaStr) {
@@ -248,6 +249,7 @@ public class MainActivity extends AppCompatActivity {
         tvWeather = findViewById(R.id.tv_weather);
         tvTemLowHigh = findViewById(R.id.tv_tem_low_high);
         ivWeather = findViewById(R.id.iv_weather);
+        tvaddress = findViewById(R.id.tv_address);
     }
 
     private void getWeatherOfCity() {

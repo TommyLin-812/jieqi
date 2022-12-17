@@ -72,7 +72,7 @@ public class NetUtil {
     public static String getWeatherOfCity(String city) {
         // 拼接出获取天气数据的URL
         // https://tianqiapi.com/api?version=v1&appid=36646344&appsecret=c1lgQbP9
-        String weatherUrl = URL_WEATHER_WITH_FUTURE + "&city=" + city;
+        String weatherUrl = URL_WEATHER_WITH_FUTURE;
         Log.d("fan", "----weatherUrl----" + weatherUrl);
         String weatherResult = doGet(weatherUrl);
         Log.d("fan", "----weatherResult----" + weatherResult);
