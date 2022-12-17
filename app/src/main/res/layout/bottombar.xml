@@ -10,23 +10,41 @@
     android:background="@color/light_gray"
 
     >
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:clickable="true"
+        android:gravity="center" />
 
     <ImageView
         android:id="@+id/iv_to_home"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:layout_weight="1.5"
         android:clickable="true"
         android:gravity="center"
         android:src="@drawable/home_selector" />
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:clickable="true"
+        android:gravity="center" />
 
     <ImageView
         android:id="@+id/iv_to_article"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:layout_weight="1.5"
         android:clickable="true"
         android:gravity="center"
         android:src="@drawable/article_selector" />
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:clickable="true"
+        android:gravity="center" />
 
 </LinearLayout>
