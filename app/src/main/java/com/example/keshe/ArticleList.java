@@ -3,6 +3,7 @@ package com.example.keshe;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -21,6 +22,7 @@ public class ArticleList extends AppCompatActivity implements View.OnClickListen
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.article_list);
         List<ArticleBean> articleBeans = ArticleInfo.getArticleList();
         ImageView iv_to_home = this.findViewById(R.id.iv_to_home);
